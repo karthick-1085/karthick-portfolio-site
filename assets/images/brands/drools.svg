@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 55" width="160" height="55">
-  <!-- Drools Red Shield Badge -->
-  <rect x="5" y="8" width="150" height="40" rx="20" fill="#dc2626"/>
-  <!-- Drools Typography -->
-  <text x="80" y="35" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">drools</text>
-  <circle cx="138" cy="22" r="3" fill="#facc15"/>
-</svg>
