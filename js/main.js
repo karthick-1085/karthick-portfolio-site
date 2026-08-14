@@ -478,7 +478,7 @@ function initFormSubmissions() {
         fetch(GOOGLE_SHEETS_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(leadData)
         }).catch(err => console.log('Google Sheets submit error:', err));
       }
