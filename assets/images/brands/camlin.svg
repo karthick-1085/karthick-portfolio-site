@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 55" width="160" height="55">
+  <!-- Camel silhouette outline -->
+  <path d="M 12,35 Q 16,22 22,25 Q 28,18 34,26 Q 40,22 44,35 Z" fill="#b91c1c"/>
+  <!-- Camlin text -->
+  <text x="48" y="36" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" fill="#b91c1c" letter-spacing="-0.5">camlin</text>
+</svg>

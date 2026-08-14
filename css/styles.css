@@ -868,32 +868,36 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.brand-pill {
+.brand-logo-card {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-full);
-  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1.75rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: var(--text-primary);
-  white-space: nowrap;
+  justify-content: center;
+  height: 64px;
+  min-width: 170px;
   box-shadow: var(--shadow-sm);
   transition: var(--transition-normal);
 }
 
-.brand-pill:hover {
+.brand-logo-card:hover {
   border-color: var(--primary-blue-border);
-  color: var(--primary-blue);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
-.brand-pill-icon {
-  font-size: 1.25rem;
+.brand-logo-img {
+  max-height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(10%) opacity(0.9);
+  transition: var(--transition-fast);
+}
+
+.brand-logo-card:hover .brand-logo-img {
+  filter: grayscale(0%) opacity(1);
 }
 
 /* Certifications Section */
