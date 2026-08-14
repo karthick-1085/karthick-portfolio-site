@@ -62,26 +62,44 @@ function initHeaderScroll() {
   }, { passive: true });
 }
 
-/* 3. Mobile Navigation Toggle */
+/* 3. Mobile Navigation Toggle & Drawer Overlay */
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobileToggle');
   const navLinks = document.getElementById('navLinks');
+  const backdrop = document.getElementById('mobileBackdrop');
   
   if (!toggleBtn || !navLinks) return;
   
+  function closeMenu() {
+    navLinks.classList.remove('active');
+    backdrop?.classList.remove('active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.innerHTML = '☰';
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    navLinks.classList.add('active');
+    backdrop?.classList.add('active');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    toggleBtn.innerHTML = '✕';
+    document.body.style.overflow = 'hidden';
+  }
+
   toggleBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
     const isExpanded = navLinks.classList.contains('active');
-    toggleBtn.setAttribute('aria-expanded', isExpanded);
-    toggleBtn.innerHTML = isExpanded ? '✕' : '☰';
+    if (isExpanded) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
+
+  backdrop?.addEventListener('click', closeMenu);
   
-  // Close mobile menu when link is clicked
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      toggleBtn.innerHTML = '☰';
-    });
+  // Close mobile menu when link or modal trigger is clicked
+  document.querySelectorAll('.nav-link, .trigger-enquiry-modal').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 }
 
