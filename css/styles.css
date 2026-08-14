@@ -837,32 +837,63 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--border-light);
 }
 
-.brands-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem;
-  align-items: center;
+/* Smooth Running Infinite Logo Marquee Strip */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem 0;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
 }
 
-.brand-card {
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-pill {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1rem;
-  text-align: center;
+  border-radius: var(--radius-full);
+  padding: 0.9rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  transition: var(--transition-normal);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  white-space: nowrap;
   box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
 }
 
-.brand-card:hover {
-  transform: translateY(-4px);
-  color: var(--primary-blue);
+.brand-pill:hover {
   border-color: var(--primary-blue-border);
+  color: var(--primary-blue);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.brand-pill-icon {
+  font-size: 1.25rem;
 }
 
 /* Certifications Section */
