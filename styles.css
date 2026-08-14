@@ -231,6 +231,10 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
 }
 
+.mobile-cta-item {
+  display: none !important;
+}
+
 .nav-link {
   color: var(--text-secondary);
   text-decoration: none;
@@ -1336,6 +1340,10 @@ html, body {
 
   .header-cta-btn {
     display: none !important;
+  }
+
+  .mobile-cta-item {
+    display: block !important;
   }
 
   .mobile-toggle {
