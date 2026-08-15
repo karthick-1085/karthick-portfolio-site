@@ -84,19 +84,65 @@
   --shadow-glow: 0 0 25px rgba(59, 130, 246, 0.3);
 }
 
+[data-theme="dark"] .header {
+  background: rgba(11, 15, 25, 0.85) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="dark"] .header.scrolled {
+  background: rgba(11, 15, 25, 0.95) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
 [data-theme="dark"] .brand-logo-card {
   background: #1e293b;
   border-color: #334155;
 }
 
 [data-theme="dark"] .brand-logo-img {
-  filter: brightness(1.1) contrast(1.05);
+  filter: brightness(1.15) contrast(1.05);
 }
 
-[data-theme="dark"] .hero-tag, [data-theme="dark"] .section-tag {
-  background: rgba(59, 130, 246, 0.15);
-  border-color: rgba(59, 130, 246, 0.3);
-  color: #60a5fa;
+[data-theme="dark"] .hero-tag, 
+[data-theme="dark"] .section-tag {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border: 1px solid rgba(96, 165, 250, 0.4) !important;
+  color: #93c5fd !important;
+}
+
+[data-theme="dark"] .pulse-dot {
+  background-color: #38bdf8 !important;
+  box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7);
+}
+
+/* Secondary Button Visibility in Dark Mode */
+[data-theme="dark"] .btn-secondary {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  color: #ffffff !important;
+}
+
+/* Glass Badges in Dark Mode */
+[data-theme="dark"] .glass-badge {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-theme="dark"] .badge-value {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .badge-label {
+  color: #94a3b8 !important;
 }
 
 [data-theme="dark"] .form-input, 
@@ -352,7 +398,8 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
 }
 
-.mobile-cta-item {
+.mobile-cta-item,
+.mobile-theme-item {
   display: none !important;
 }
 
@@ -1463,7 +1510,8 @@ html, body {
     display: none !important;
   }
 
-  .mobile-cta-item {
+  .mobile-cta-item,
+  .mobile-theme-item {
     display: block !important;
   }
 
@@ -1650,13 +1698,11 @@ html, body {
     max-width: 100px;
   }
 
-  /* Glass Badges on Mobile */
-  .glass-badge {
-    position: relative;
-    inset: auto !important;
-    margin: 0.75rem auto;
-    width: max-content;
-    animation: none;
+  /* Remove 918K+ Clicks & 4,000+ Pages Glass Badges from Mobile View */
+  .glass-badge,
+  .glass-badge-top,
+  .glass-badge-bottom {
+    display: none !important;
   }
 
   .hero-avatar-wrapper {
