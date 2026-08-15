@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initScrollProgress();
   initHeaderScroll();
   initMobileMenu();
@@ -16,6 +17,47 @@ document.addEventListener('DOMContentLoaded', () => {
   initROICalculator();
   initFormSubmissions();
 });
+
+/* 0. Dark / Night Mode Theme Switcher */
+function initThemeToggle() {
+  const desktopBtn = document.getElementById('themeToggle');
+  const mobileBtn = document.getElementById('mobileThemeToggle');
+  
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+  
+  setTheme(initialTheme);
+  
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    
+    const isDark = theme === 'dark';
+    
+    if (desktopBtn) {
+      const icon = desktopBtn.querySelector('.theme-toggle-icon');
+      if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+      desktopBtn.setAttribute('title', isDark ? 'Switch to Light Mode' : 'Switch to Night Mode');
+    }
+    
+    if (mobileBtn) {
+      const icon = mobileBtn.querySelector('.theme-toggle-icon');
+      const text = mobileBtn.querySelector('.theme-toggle-text');
+      if (icon) icon.textContent = isDark ? '☀️' : '🌙';
+      if (text) text.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Night Mode';
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+  }
+
+  desktopBtn?.addEventListener('click', toggleTheme);
+  mobileBtn?.addEventListener('click', toggleTheme);
+}
 
 /* 1. Scroll Progress Bar */
 function initScrollProgress() {
