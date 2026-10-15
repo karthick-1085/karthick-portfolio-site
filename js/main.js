@@ -485,7 +485,7 @@ function initROICalculator() {
 }
 
 /* 11. Form Submissions (Google Sheets Integration + Lead Capture) */
-const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZTP6a8dHsCbX5ersvnJC0fJR9DR19bKscgu39tIWpo1BRPy8AqcnQm8PHEA_takM/exec';
+const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxxEjmO47bjsNq3eBl0uwZ1zQ8a0YojGPEZLo75JdVohrYkCXStzIGq1dz5GV14yCWN/exec';
 
 function initFormSubmissions() {
   const popupForm = document.getElementById('popupEnquiryForm');
