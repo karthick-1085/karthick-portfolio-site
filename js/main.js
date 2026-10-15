@@ -543,6 +543,15 @@ function initFormSubmissions() {
         }).catch(err => console.log('Google Sheets submit error:', err));
       }
       
+      // GA4 Conversion Event: generate_lead
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'form_submission',
+          event_label: serviceVal,
+          form_source: sourceName
+        });
+      }
+      
       setTimeout(() => {
         submitBtn.innerHTML = '✓ Enquiry Sent!';
         showToast('Thank you! Your enquiry has been received and logged.');
